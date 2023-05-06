@@ -29,7 +29,6 @@ Test:
   # scripts which needs to be run before main script
   before_script:
     - pip3 install -r requirements.txt
-    - cd ./core
     - python manage.py migrate
     - python manage.py check
 
