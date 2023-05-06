@@ -179,22 +179,22 @@ else:
 # security configs for production
 if config("USE_SSL_CONFIG", cast=bool, default=False):
     # Https settings
-    # SESSION_COOKIE_SECURE = True
-    # CSRF_COOKIE_SECURE = True
-    # SECURE_SSL_REDIRECT = True
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    SECURE_SSL_REDIRECT = True
 
     # HSTS settings
-    # SECURE_HSTS_SECONDS = 31536000  # 1 year
-    # SECURE_HSTS_PRELOAD = True
-    # SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    SECURE_HSTS_SECONDS = 31536000  # 1 year
+    SECURE_HSTS_PRELOAD = True
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 
     # more security settings
     SECURE_CONTENT_TYPE_NOSNIFF = True
-    #  SECURE_BROWSER_XSS_FILTER = True
-    # X_FRAME_OPTIONS = "SAMEORIGIN"
-    # SECURE_REFERRER_POLICY = "strict-origin"
-    # USE_X_FORWARDED_HOST = True
-    # SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+    SECURE_BROWSER_XSS_FILTER = True
+    X_FRAME_OPTIONS = "SAMEORIGIN"
+    SECURE_REFERRER_POLICY = "strict-origin"
+    USE_X_FORWARDED_HOST = True
+    SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
 REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": [
@@ -243,10 +243,3 @@ if SHOW_DEBUGGER_TOOLBAR:
         "10.0.2.2",
     ]
 
-
-# Insert Whitenoise Middleware.
-MIDDLEWARE = tuple(['whitenoise.middleware.WhiteNoiseMiddleware'] + list(MIDDLEWARE))
-
-# Enable GZip.
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-# if you need only compression without cache use "whitenoise.storage.CompressedStaticFilesStorage" instead
