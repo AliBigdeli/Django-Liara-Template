@@ -2,7 +2,7 @@
   "platform": "django",
   "django": {
     "pythonVersion": "3.9",
-    "collectStatic": false,
+    "collectStatic": true,
     "compileMessages": false,
     "modifySettings": true,
     "timezone": "Asia/Tehran"
