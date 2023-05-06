@@ -65,12 +65,10 @@ jobs:
 
     # running all migrations
     - name: Run migrations
-      working-directory: ./core
       run: python manage.py migrate
 
     # testing the project from the root directory of core
     - name: Run tests
-      working-directory: ./core
       env:
         DJANGO_SETTINGS_MODULE: core.settings
       run: pytest .
